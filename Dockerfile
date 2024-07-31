@@ -1,8 +1,8 @@
 FROM golang:1.22.5
-workdir /app
-copy go.mod ./
-run go mod download
-copy ..
-run go build -o main .
-expose 7070
-cmd ["./main"]
+WORKDIR /app
+COPY go.mod ./
+RUN go mod download
+COPY ..
+RUN go build -o main .
+EXPOSE 7070
+CMD ["./main"]
